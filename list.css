@@ -10,143 +10,274 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow:hidden;
+    position:relative;
+    background:#0f172a;
+}
+
+/* Animated Background */
+
+.bg-animation{
+    position:fixed;
+    width:100%;
+    height:100%;
     background:linear-gradient(
-        135deg,
+        -45deg,
         #0f172a,
         #1e293b,
-        #334155
+        #2563eb,
+        #7c3aed
     );
-    padding:20px;
+    background-size:400% 400%;
+    animation:gradientMove 12s ease infinite;
+    z-index:-2;
 }
+
+@keyframes gradientMove{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* Floating Card */
 
 .container{
     width:100%;
     max-width:700px;
+    padding:20px;
 }
 
 .todo-card{
-    background:rgba(255,255,255,0.1);
+
     backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.08);
+
     border:1px solid rgba(255,255,255,0.2);
+
     border-radius:25px;
-    padding:30px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+
+    padding:35px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.3);
+
+    animation:floatCard 5s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
 }
 
 h1{
     text-align:center;
     color:white;
-    margin-bottom:10px;
-    font-size:2.2rem;
+    font-size:2.5rem;
 }
 
 .subtitle{
     text-align:center;
-    color:#cbd5e1;
+    color:#dbeafe;
+    margin-top:8px;
     margin-bottom:25px;
 }
 
+/* Input */
+
 .input-section{
     display:flex;
-    gap:10px;
+    gap:12px;
     margin-bottom:25px;
 }
 
 .input-section input{
+
     flex:1;
-    padding:15px;
     border:none;
     outline:none;
-    border-radius:12px;
+
+    padding:15px;
+
+    border-radius:15px;
+
     font-size:16px;
+
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+}
+
+.input-section input::placeholder{
+    color:#cbd5e1;
 }
 
 .input-section button{
-    padding:15px 25px;
+
     border:none;
-    border-radius:12px;
-    background:#22c55e;
-    color:white;
     cursor:pointer;
-    font-size:15px;
+
+    padding:15px 25px;
+
+    border-radius:15px;
+
     font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+    45deg,
+    #22c55e,
+    #16a34a
+    );
+
     transition:0.3s;
 }
 
 .input-section button:hover{
-    transform:translateY(-2px);
-    background:#16a34a;
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 0 20px rgba(34,197,94,.6);
 }
 
+/* Stats */
+
 .stats{
+
     display:flex;
     justify-content:space-between;
+
+    background:rgba(255,255,255,.08);
+
+    padding:15px;
+
+    border-radius:15px;
+
     color:white;
-    margin-bottom:20px;
-    padding:12px;
-    background:rgba(255,255,255,0.08);
-    border-radius:12px;
+
+    margin-bottom:25px;
 }
+
+/* Task List */
 
 #taskList{
     list-style:none;
 }
 
-#taskList li{
+.task-item{
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
+    background:rgba(255,255,255,.08);
+
+    margin-bottom:15px;
+
     padding:15px;
-    margin-bottom:12px;
-    background:rgba(255,255,255,0.08);
+
     border-radius:15px;
+
     color:white;
-    transition:0.3s;
+
+    animation:slideIn .5s ease forwards;
 }
 
-#taskList li:hover{
-    transform:translateY(-2px);
+@keyframes slideIn{
+
+    from{
+        opacity:0;
+        transform:translateX(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.task-item:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(255,255,255,.15);
+
+    transition:.3s;
 }
 
 .completed span{
+
     text-decoration:line-through;
+
     color:#94a3b8;
 }
 
+/* Buttons */
+
 .actions{
     display:flex;
-    gap:8px;
+    gap:10px;
+}
+
+.complete-btn,
+.delete-btn{
+
+    border:none;
+    cursor:pointer;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    color:white;
+
+    transition:.3s;
 }
 
 .complete-btn{
-    background:#3b82f6;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.3s;
+    background:#2563eb;
 }
 
 .complete-btn:hover{
-    background:#2563eb;
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 15px #2563eb;
 }
 
 .delete-btn{
     background:#ef4444;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.3s;
 }
 
 .delete-btn:hover{
-    background:#dc2626;
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 15px #ef4444;
 }
 
-@media(max-width:600px){
+/* Responsive */
+
+@media(max-width:700px){
 
     .input-section{
         flex-direction:column;
@@ -158,14 +289,9 @@ h1{
         text-align:center;
     }
 
-    #taskList li{
+    .task-item{
         flex-direction:column;
         gap:12px;
         text-align:center;
-    }
-
-    .actions{
-        width:100%;
-        justify-content:center;
     }
 }

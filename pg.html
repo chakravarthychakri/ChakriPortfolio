@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Password Generator</title>
+    <link rel="stylesheet" href="pg.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-animation"></div>
+
+    <div class="container">
+        <div class="card">
+            <h1>🔐 Password Generator</h1>
+            <p>Create secure and strong passwords instantly.</p>
+
+            <div class="input-group">
+                <label>Password Length</label>
+                <input type="number" id="length" min="8" value="12">
+            </div>
+
+            <button onclick="generatePassword()">
+                Generate Password
+            </button>
+
+            <div class="password-box">
+                <input type="text" id="password" readonly>
+                <button class="copy-btn" onclick="copyPassword()">📋</button>
+            </div>
+
+            <div id="strength"></div>
+        </div>
+    </div>
+
+<script>
+function generatePassword() {
+    let length = parseInt(document.getElementById("length").value);
+
+    if (length < 8) {
+        alert("Password length should be at least 8!");
+        return;
+    }
+
+    const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lower = "abcdefghijklmnopqrstuvwxyz";
+    const numbers = "0123456789";
+    const symbols = "!@#$%^&*()_+[]{}|;:,.<>?";
+
+    let password = "";
+
+    password += upper[Math.floor(Math.random() * upper.length)];
+    password += lower[Math.floor(Math.random() * lower.length)];
+    password += numbers[Math.floor(Math.random() * numbers.length)];
+    password += symbols[Math.floor(Math.random() * symbols.length)];
+
+    const allChars = upper + lower + numbers + symbols;
+
+    for (let i = 4; i < length; i++) {
+        password += allChars[Math.floor(Math.random() * allChars.length)];
+    }
+
+    password = password.split('')
+        .sort(() => Math.random() - 0.5)
+        .join('');
+
+    document.getElementById("password").value = password;
+
+    let strength = document.getElementById("strength");
+
+    if(length >= 16){
+        strength.innerHTML = "🟢 Very Strong Password";
+        strength.style.color = "#00ff88";
+    }
+    else if(length >= 12){
+        strength.innerHTML = "🟡 Strong Password";
+        strength.style.color = "#ffd700";
+    }
+    else{
+        strength.innerHTML = "🟠 Medium Password";
+        strength.style.color = "#ff9800";
+    }
+}
+
+function copyPassword() {
+    const passwordField = document.getElementById("password");
+
+    if(passwordField.value === ""){
+        alert("Generate a password first!");
+        return;
+    }
+
+    navigator.clipboard.writeText(passwordField.value);
+
+    const btn = document.querySelector(".copy-btn");
+    btn.innerHTML = "✅";
+
+    setTimeout(() => {
+        btn.innerHTML = "📋";
+    }, 1500);
+}
+</script>
+
+</body>
+</html>
