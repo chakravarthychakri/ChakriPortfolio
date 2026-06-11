@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern To-Do List</title>
+    <link rel="stylesheet" href="list.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="todo-card">
+            <h1>📝 To-Do List</h1>
+            <p class="subtitle">Organize your day efficiently</p>
+
+            <div class="input-section">
+                <input type="text" id="taskInput" placeholder="Enter a new task...">
+                <button onclick="addTask()">Add Task</button>
+            </div>
+
+            <div class="stats">
+                <span>Total Tasks: <b id="totalTasks">0</b></span>
+                <span>Completed: <b id="completedTasks">0</b></span>
+            </div>
+
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskText = taskInput.value.trim();
+
+            if (taskText === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            tasks.push({
+                task: taskText,
+                completed: false
+            });
+
+            taskInput.value = "";
+            renderTasks();
+        }
+
+        function toggleComplete(index) {
+            tasks[index].completed = !tasks[index].completed;
+            renderTasks();
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+
+            let completedCount = 0;
+
+            tasks.forEach((task, index) => {
+                if (task.completed) completedCount++;
+
+                const li = document.createElement("li");
+                li.className = task.completed ? "completed" : "";
+
+                li.innerHTML = `
+                    <span>${task.task}</span>
+
+                    <div class="actions">
+                        <button class="complete-btn"
+                            onclick="toggleComplete(${index})">
+                            ${task.completed ? "Undo" : "Done"}
+                        </button>
+
+                        <button class="delete-btn"
+                            onclick="deleteTask(${index})">
+                            Delete
+                        </button>
+                    </div>
+                `;
+
+                taskList.appendChild(li);
+            });
+
+            document.getElementById("totalTasks").textContent = tasks.length;
+            document.getElementById("completedTasks").textContent = completedCount;
+        }
+
+        document.getElementById("taskInput")
+        .addEventListener("keypress", function(e){
+            if(e.key === "Enter"){
+                addTask();
+            }
+        });
+    </script>
+
+</body>
+</html>
