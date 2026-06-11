@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Poppins:wght@500&family=Ubuntu:wght@700&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background-color: #f0f2f5;
+}
+h1{
+    font-family: 'inter',sans-serif;
+    color: royalblue;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 70px;
+    padding: 30px;
+    font-size:  40px;
+}
+header{
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ffffff;
+    position: absolute;
+    left: 32%;
+    width: 35%;
+    height: 45%;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 3px;
+
+}
+.text{
+    font-family: 'poppins',sans-serif;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 17px;
+}
+.form input{
+    margin: 10px;
+    width: 350px;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding: 5px;
+}
+.link{
+    background-color: royalblue;
+    border-radius: 7px;
+    margin-left: 51px;
+    width: 354px;
+    height: 40px;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+    position: absolute;
+    top: 59%;
+}
+.link a{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 30px;
+    font-size: 29px;
+}
+.link1{
+    position: absolute;
+    bottom: 57px;
+    left: 80px;
+}
+.link1 a{
+    padding: 6px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.link2{
+    position: absolute;
+    bottom: 35px;
+    left: 32%;
+    text-align: center;
+
+}
+.link2 a{
+    padding: 2px;
+    text-decoration: none;
+    font-size: 18px;
+}
