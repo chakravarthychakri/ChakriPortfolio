@@ -36,6 +36,7 @@ nav{
 nav ul{
     display:flex;
     list-style:none;
+    align-items:center;
 }
 
 nav ul li{
@@ -50,6 +51,124 @@ nav ul li a{
 
 nav ul li a:hover{
     color:#38bdf8;
+}
+
+/* Theme Button */
+#theme-toggle{
+    margin-left:25px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#1e293b;
+    color:#38bdf8;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.4s;
+}
+
+#theme-toggle:hover{
+    transform:rotate(180deg);
+    background:#38bdf8;
+    color:#0f172a;
+    box-shadow:0 0 15px #38bdf8;
+}
+
+/* ===== LIGHT THEME ===== */
+
+.light-theme{
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+.light-theme header{
+    background:rgba(255,255,255,0.95);
+}
+
+.light-theme nav ul li a{
+    color:#0f172a;
+}
+
+.light-theme nav ul li a:hover{
+    color:#38bdf8;
+}
+
+/* Hero Section */
+.light-theme .hero{
+    background:#f8fafc;
+}
+
+.light-theme .hero-content h3{
+    color:#475569;
+}
+
+.light-theme .hero-content p{
+    color:#334155;
+}
+
+/* About Section */
+.light-theme .about-box{
+    color:#334155;
+}
+
+/* Cards */
+.light-theme .education-card,
+.light-theme .skill-card,
+.light-theme .certificate-card,
+.light-theme .project-card,
+.light-theme .contact-box,
+.light-theme .contact-form form{
+    background:#ffffff;
+    color:#0f172a;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Card Paragraphs */
+.light-theme .skill-card p,
+.light-theme .certificate-card p,
+.light-theme .project-card p,
+.light-theme .education-card p{
+    color:#475569;
+}
+
+/* Form */
+.light-theme .contact-form label{
+    color:#0f172a;
+}
+
+.light-theme .contact-form input,
+.light-theme .contact-form textarea{
+    background:#f1f5f9;
+    color:#0f172a;
+    border:1px solid #cbd5e1;
+}
+
+/* Contact Details */
+.light-theme .contact-box p{
+    color:#334155;
+}
+
+/* Social Icons */
+.light-theme .social-icons a{
+    background:#e2e8f0;
+    color:#38bdf8;
+}
+
+.light-theme .social-icons a:hover{
+    background:#38bdf8;
+    color:white;
+}
+
+/* Footer */
+.light-theme footer{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+/* Theme Button */
+.light-theme #theme-toggle{
+    background:#e2e8f0;
+    color:#0f172a;
 }
 
 .hero{
