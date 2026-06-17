@@ -120,6 +120,7 @@ h2{
     line-height:1.8;
 }
 
+.education-container,
 .skills-container,
 .certificate-container,
 .projects-container{
@@ -128,6 +129,7 @@ h2{
     gap:25px;
 }
 
+.education-card,
 .skill-card,
 .certificate-card,
 .project-card{
@@ -138,6 +140,7 @@ h2{
     transition:0.4s;
 }
 
+.education-card:hover,
 .skill-card:hover,
 .certificate-card:hover,
 .project-card:hover{
