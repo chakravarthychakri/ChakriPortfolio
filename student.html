@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard</title>
+<link rel="stylesheet" href="student.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <h1>🎓 Student Dashboard</h1>
+
+    <div class="clock-card">
+        <h2>⏰ Current Time</h2>
+        <p id="clock"></p>
+    </div>
+
+    <div class="weather-card">
+        <h2>🌤 Weather</h2>
+        <input type="text" id="city" placeholder="Enter City">
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weather"></div>
+    </div>
+
+    <div class="quote-card">
+        <h2>💡 Daily Motivation</h2>
+        <p id="quote">Loading...</p>
+    </div>
+
+    <div class="news-card">
+        <h2>📰 Tech News</h2>
+        <ul id="news"></ul>
+    </div>
+
+    <div class="currency-card">
+        <h2>💰 Currency Converter</h2>
+
+        <input type="number" id="amount" placeholder="Amount">
+
+        <select id="from">
+            <option>USD</option>
+            <option>INR</option>
+            <option>EUR</option>
+        </select>
+
+        <select id="to">
+            <option>INR</option>
+            <option>USD</option>
+            <option>EUR</option>
+        </select>
+
+        <button onclick="convertCurrency()">Convert</button>
+
+        <p id="result"></p>
+    </div>
+
+    <div class="card todo-card">
+        <h2>✅ To-Do List</h2>
+
+        <input type="text" id="taskInput" placeholder="Add Task">
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+</div>
+
+<script src="student.js"></script>
+
+</body>
+</html>
