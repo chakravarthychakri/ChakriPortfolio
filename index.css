@@ -111,6 +111,16 @@ nav ul li a:hover{
     color:#334155;
 }
 
+.light-theme .highlight-card{
+    background:#ffffff;
+    color:#0f172a;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+.light-theme .highlight-card p{
+    color:#475569;
+}
+
 /* Cards */
 .light-theme .education-card,
 .light-theme .skill-card,
@@ -201,6 +211,12 @@ nav ul li a:hover{
     line-height:1.8;
 }
 
+.hero-highlight{
+    margin-top:12px;
+    color:#38bdf8;
+    font-weight:600;
+}
+
 .btn{
     display:inline-block;
     margin-top:20px;
@@ -210,6 +226,14 @@ nav ul li a:hover{
     text-decoration:none;
     border-radius:30px;
     font-weight:600;
+    align-items:center;
+    transition:0.4s;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 .hero-image img{
@@ -239,6 +263,35 @@ h2{
     line-height:1.8;
 }
 
+.about-box p{
+    margin-bottom:15px;
+}
+
+.highlights-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.highlight-card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.highlight-card i{
+    font-size:2rem;
+    color:#38bdf8;
+    margin-bottom:12px;
+}
+
+.highlight-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #38bdf8;
+}
+
 .education-container,
 .skills-container,
 .certificate-container,
@@ -259,6 +312,25 @@ h2{
     transition:0.4s;
 }
 
+.project-card{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+}
+
+.project-card .btn{
+    align-self:flex-start;
+}
+
+.highlight-card p,
+.education-card p,
+.certificate-card,
+.skill-card p,
+.certificate-card p,
+.project-card p{
+    text-align:left;
+}
 .education-card:hover,
 .skill-card:hover,
 .certificate-card:hover,
@@ -381,6 +453,13 @@ footer{
     gap:15px;
     margin:20px 0;
     font-size:1.2rem;
+}
+
+.contact-note{
+    text-align:center;
+    color:#38bdf8;
+    font-weight:600;
+    margin-top:20px;
 }
 
 .contact-box p i{
